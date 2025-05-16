@@ -79,8 +79,8 @@ userInput.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
     const input = userInput.value.trim().toLowerCase();
 
-    if (input === 'home') {
-      window.location.href = 'Main.html';
+    if (input === 'test') {
+      window.location.href = 'test.html';
     } else if (input === 'about') {
       window.location.href = 'about.html';
     } else if (input === 'contact') {

@@ -102,3 +102,7 @@ img {
   text-decoration: none;
   z-index: 3;
 }
+
+#no_bm{
+  margin-bottom: 0;
+}
