@@ -3,13 +3,22 @@
 const userInput = document.getElementById('userInput');
 const inputContainer = document.getElementById('inputContainer');
 
-// === Base path logic (adjusts for any folder depth) ===
-const getBasePath = (targetPath) => {
-  const currentPath = window.location.pathname;
-  const currentDepth = currentPath.split('/').length - 2;
-  const upPath = '../'.repeat(currentDepth);
-  return upPath + targetPath;
-};
+// === Base path logic (supports GitHub Pages and local) ===
+function getBasePath(targetPath) {
+  const isGithubPages = window.location.hostname.includes('github.io');
+  const pathnameParts = window.location.pathname.split('/').filter(Boolean);
+
+  if (isGithubPages) {
+    const repoName = pathnameParts[0] || '';
+    return `/${repoName}/${targetPath}`;
+  } else {
+    const depth = pathnameParts.length > 0 && window.location.pathname.endsWith('/')
+      ? pathnameParts.length
+      : pathnameParts.length - 1;
+    const prefix = '../'.repeat(depth < 0 ? 0 : depth);
+    return prefix + targetPath;
+  }
+}
 
 const routes = {
   home: { url: getBasePath('home.html'), password: null },
