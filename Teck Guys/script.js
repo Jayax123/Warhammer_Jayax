@@ -4,9 +4,9 @@ const userInput = document.getElementById('userInput');
 const inputContainer = document.getElementById('inputContainer');
 
 const routes = {
-  home: { url: '/home.html', password: null },
-  help: { url: '/help.html', password: null },
-  background: { url: '/character_information/biograghy1.html', password: null }
+  home: { url: resolvePath('home.html'), password: null },
+  help: { url: resolvePath('help.html'), password: null },
+  background: { url: resolvePath('character_information/biograghy1.html'), password: null }
 };
 
 const passwordData = {
@@ -234,4 +234,11 @@ function setupPasswordInput({
       }
     });
   }
+}
+
+function resolvePath(targetPath) {
+  const currentPath = window.location.pathname;
+  const depth = currentPath.split('/').filter(part => part && !part.includes('.html')).length;
+  const prefix = '../'.repeat(depth);
+  return prefix + targetPath;
 }
