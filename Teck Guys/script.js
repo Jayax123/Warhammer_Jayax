@@ -5,20 +5,25 @@ const inputContainer = document.getElementById('inputContainer');
 
 // === Base path logic (supports GitHub Pages and local) ===
 function getBasePath(targetPath) {
-  const isGithubPages = window.location.hostname.includes('github.io');
-  const pathnameParts = window.location.pathname.split('/').filter(Boolean);
+  const hostname = window.location.hostname;
+  const pathname = window.location.pathname;
 
-  if (isGithubPages) {
-    const repoName = pathnameParts[0] || '';
-    return `/${repoName}/${targetPath}`;
+  if (hostname.endsWith('github.io')) {
+    const parts = pathname.split('/').filter(Boolean);
+    const repoName = parts[0] || '';
+    return `${window.location.origin}/${repoName}/${targetPath}`;
   } else {
-    const depth = pathnameParts.length > 0 && window.location.pathname.endsWith('/')
-      ? pathnameParts.length
-      : pathnameParts.length - 1;
-    const prefix = '../'.repeat(depth < 0 ? 0 : depth);
+    let parts = pathname.split('/').filter(Boolean);
+    if (parts.length && parts[parts.length - 1].includes('.')) {
+      parts.pop();
+    }
+    const depth = parts.length;
+
+    const prefix = '../'.repeat(depth);
     return prefix + targetPath;
   }
 }
+
 
 const routes = {
   home: { url: getBasePath('home.html'), password: null },
