@@ -3,23 +3,31 @@
 const userInput = document.getElementById('userInput');
 const inputContainer = document.getElementById('inputContainer');
 
+// === Base path logic (adjusts for any folder depth) ===
+const getBasePath = (targetPath) => {
+  const currentPath = window.location.pathname;
+  const currentDepth = currentPath.split('/').length - 2;
+  const upPath = '../'.repeat(currentDepth);
+  return upPath + targetPath;
+};
+
 const routes = {
-  home: { url: resolvePath('home.html'), password: null },
-  help: { url: resolvePath('help.html'), password: null },
-  background: { url: resolvePath('character_information/biograghy1.html'), password: null }
+  home: { url: getBasePath('home.html'), password: null },
+  help: { url: getBasePath('help.html'), password: null },
+  background: { url: getBasePath('character_information/biograghy1.html'), password: null }
 };
 
 const passwordData = {
-  F3lOGh9: ['fileNomen1','fileNomen2','fileNomen3','fileNomen4','fileNomen5'],
-  Guest: ['fileOther1','fileOther2','fileOther3','fileOther4','fileOther5'],
+  F3lOGh9: ['fileNomen1', 'fileNomen2', 'fileNomen3', 'fileNomen4', 'fileNomen5'],
+  Guest: ['fileOther1', 'fileOther2', 'fileOther3', 'fileOther4', 'fileOther5'],
 };
 
-// === Typing animation function ===
+// === Typing animation ===
 
 function typeHTML(parent, speed = 35) {
   return new Promise(async (resolve) => {
     const originalNodes = Array.from(parent.childNodes);
-    parent.textContent = ''; // Clear content safely without destroying style context
+    parent.textContent = '';
 
     async function typeNode(node, container) {
       if (node.nodeType === Node.TEXT_NODE) {
@@ -29,30 +37,21 @@ function typeHTML(parent, speed = 35) {
           await new Promise(r => setTimeout(r, speed));
         }
       } else if (node.nodeType === Node.ELEMENT_NODE) {
-        const tag = node.tagName.toLowerCase();
         const newElem = document.createElement(node.tagName);
-
-        // Copy attributes like class, style, src, etc.
         for (let attr of node.attributes) {
           newElem.setAttribute(attr.name, attr.value);
         }
-
         container.appendChild(newElem);
 
-        if (tag === 'img') {
+        if (node.tagName.toLowerCase() === 'img') {
           await new Promise((r) => {
             newElem.onload = () => r();
             newElem.onerror = () => r();
-            if (newElem.complete) r(); // Already loaded
+            if (newElem.complete) r();
           });
           await new Promise(r => setTimeout(r, speed * 5));
           return;
         }
-
-        if (tag === 'br') {
-          container.appendChild(newElem);
-          return;
-        };
 
         for (const child of node.childNodes) {
           await typeNode(child, newElem);
@@ -68,7 +67,7 @@ function typeHTML(parent, speed = 35) {
   });
 }
 
-// === Hide/show protected content ===
+// === Protected content ===
 
 function hideAllProtected() {
   const allIds = new Set(Object.values(passwordData).flat());
@@ -94,7 +93,7 @@ function showProtected(password) {
   });
 }
 
-// === Initialize: hide protected, show if accepted ===
+// === Initialization ===
 
 const acceptedPassword = sessionStorage.getItem('acceptedPassword');
 hideAllProtected();
@@ -102,14 +101,11 @@ if (acceptedPassword && passwordData[acceptedPassword]) {
   showProtected(acceptedPassword);
 }
 
-// === Typing sequence ===
-
 const elements = document.querySelectorAll('[data-type], .protected-file');
 
 async function startTypingSequence() {
   for (const el of elements) {
     if (el.classList.contains('protected-file') && el.style.display === 'none') continue;
-
     el.style.display = el.tagName.toLowerCase() === 'li' ? 'list-item' : 'block';
 
     if (el.classList.contains('protected-file') && el.dataset.originalContent) {
@@ -126,7 +122,8 @@ async function startTypingSequence() {
 
 startTypingSequence();
 
-// === User command input handler ===
+// === User command input ===
+
 if (userInput) {
   userInput.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
@@ -151,12 +148,12 @@ if (userInput) {
   });
 }
 
-// === Password input handling ===
+// === Password entry handling ===
 
 function setupPasswordInput({
   inputId = 'passwordInput',
   redirectDelaySeconds = 1,
-  redirectURL = 'home.html'
+  redirectURL = getBasePath('home.html')
 } = {}) {
   const input = document.getElementById(inputId);
   const passwordInputContainer = document.getElementById('passwordInputContainer') || document.getElementById('inputContainer');
@@ -167,7 +164,7 @@ function setupPasswordInput({
 
   hideAllProtected();
 
-  async function startTypingSequence() {
+  async function runSequence() {
     const elements = Array.from(document.querySelectorAll('[data-type], .protected-file'))
       .filter(el => !el.classList.contains('protected-file'));
 
@@ -189,7 +186,7 @@ function setupPasswordInput({
     showProtected(acceptedPassword);
     if (passwordInputContainer) passwordInputContainer.style.display = 'none';
   } else {
-    startTypingSequence();
+    runSequence();
   }
 
   if (input) {
@@ -234,11 +231,4 @@ function setupPasswordInput({
       }
     });
   }
-}
-
-function resolvePath(targetPath) {
-  const currentPath = window.location.pathname;
-  const depth = currentPath.split('/').filter(part => part && !part.includes('.html')).length;
-  const prefix = '../'.repeat(depth);
-  return prefix + targetPath;
 }
