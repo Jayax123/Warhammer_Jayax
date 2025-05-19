@@ -3,45 +3,23 @@
 const userInput = document.getElementById('userInput');
 const inputContainer = document.getElementById('inputContainer');
 
-// === Base path logic (supports GitHub Pages and local) ===
-function getBasePath(targetPath) {
-  const hostname = window.location.hostname;
-  const pathname = window.location.pathname;
-
-  if (hostname.endsWith('github.io')) {
-    const parts = pathname.split('/').filter(Boolean);
-    const repoName = parts[0] || '';
-    return `${window.location.origin}/${repoName}/${targetPath}`;
-  } else {
-    let parts = pathname.split('/').filter(Boolean);
-    if (parts.length && parts[parts.length - 1].includes('.')) {
-      parts.pop();
-    }
-    const depth = parts.length;
-
-    const prefix = '../'.repeat(depth);
-    return prefix + targetPath;
-  }
-}
-
-
 const routes = {
-  home: { url: getBasePath('home.html'), password: null },
-  help: { url: getBasePath('help.html'), password: null },
-  background: { url: getBasePath('character_information/biograghy1.html'), password: null }
+  home: { url: 'https://jayax123.github.io/Warhammer_Jayax/Teck%20Guys/home.html', password: null },
+  help: { url: 'https://jayax123.github.io/Warhammer_Jayax/Teck%20Guys/help.html', password: null },
+  background: { url: 'https://jayax123.github.io/Warhammer_Jayax/Teck%20Guys/character_information/biograghy1.html', password: null }
 };
 
 const passwordData = {
-  F3lOGh9: ['fileNomen1', 'fileNomen2', 'fileNomen3', 'fileNomen4', 'fileNomen5'],
-  Guest: ['fileOther1', 'fileOther2', 'fileOther3', 'fileOther4', 'fileOther5'],
+  F3lOGh9: ['fileNomen1','fileNomen2','fileNomen3','fileNomen4','fileNomen5'],
+  Guest: ['fileOther1','fileOther2','fileOther3','fileOther4','fileOther5'],
 };
 
-// === Typing animation ===
+// === Typing animation function ===
 
 function typeHTML(parent, speed = 35) {
   return new Promise(async (resolve) => {
     const originalNodes = Array.from(parent.childNodes);
-    parent.textContent = '';
+    parent.textContent = ''; // Clear content safely without destroying style context
 
     async function typeNode(node, container) {
       if (node.nodeType === Node.TEXT_NODE) {
@@ -51,21 +29,30 @@ function typeHTML(parent, speed = 35) {
           await new Promise(r => setTimeout(r, speed));
         }
       } else if (node.nodeType === Node.ELEMENT_NODE) {
+        const tag = node.tagName.toLowerCase();
         const newElem = document.createElement(node.tagName);
+
+        // Copy attributes like class, style, src, etc.
         for (let attr of node.attributes) {
           newElem.setAttribute(attr.name, attr.value);
         }
+
         container.appendChild(newElem);
 
-        if (node.tagName.toLowerCase() === 'img') {
+        if (tag === 'img') {
           await new Promise((r) => {
             newElem.onload = () => r();
             newElem.onerror = () => r();
-            if (newElem.complete) r();
+            if (newElem.complete) r(); // Already loaded
           });
           await new Promise(r => setTimeout(r, speed * 5));
           return;
         }
+
+        if (tag === 'br') {
+          container.appendChild(newElem);
+          return;
+        };
 
         for (const child of node.childNodes) {
           await typeNode(child, newElem);
@@ -81,7 +68,7 @@ function typeHTML(parent, speed = 35) {
   });
 }
 
-// === Protected content ===
+// === Hide/show protected content ===
 
 function hideAllProtected() {
   const allIds = new Set(Object.values(passwordData).flat());
@@ -107,7 +94,7 @@ function showProtected(password) {
   });
 }
 
-// === Initialization ===
+// === Initialize: hide protected, show if accepted ===
 
 const acceptedPassword = sessionStorage.getItem('acceptedPassword');
 hideAllProtected();
@@ -115,11 +102,14 @@ if (acceptedPassword && passwordData[acceptedPassword]) {
   showProtected(acceptedPassword);
 }
 
+// === Typing sequence ===
+
 const elements = document.querySelectorAll('[data-type], .protected-file');
 
 async function startTypingSequence() {
   for (const el of elements) {
     if (el.classList.contains('protected-file') && el.style.display === 'none') continue;
+
     el.style.display = el.tagName.toLowerCase() === 'li' ? 'list-item' : 'block';
 
     if (el.classList.contains('protected-file') && el.dataset.originalContent) {
@@ -136,8 +126,7 @@ async function startTypingSequence() {
 
 startTypingSequence();
 
-// === User command input ===
-
+// === User command input handler ===
 if (userInput) {
   userInput.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
@@ -162,12 +151,12 @@ if (userInput) {
   });
 }
 
-// === Password entry handling ===
+// === Password input handling ===
 
 function setupPasswordInput({
   inputId = 'passwordInput',
   redirectDelaySeconds = 1,
-  redirectURL = getBasePath('home.html')
+  redirectURL = 'home.html'
 } = {}) {
   const input = document.getElementById(inputId);
   const passwordInputContainer = document.getElementById('passwordInputContainer') || document.getElementById('inputContainer');
@@ -178,7 +167,7 @@ function setupPasswordInput({
 
   hideAllProtected();
 
-  async function runSequence() {
+  async function startTypingSequence() {
     const elements = Array.from(document.querySelectorAll('[data-type], .protected-file'))
       .filter(el => !el.classList.contains('protected-file'));
 
@@ -200,7 +189,7 @@ function setupPasswordInput({
     showProtected(acceptedPassword);
     if (passwordInputContainer) passwordInputContainer.style.display = 'none';
   } else {
-    runSequence();
+    startTypingSequence();
   }
 
   if (input) {
