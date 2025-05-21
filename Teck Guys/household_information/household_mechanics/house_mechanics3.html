@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Household Mechanics</title>
+    <link href="../../main.css" rel="stylesheet">
+</head>
+<body>
+  <div class="stuff">
+    <img src="../../images/Imperial_Dataslate.png" class="background-image" alt="Background Dataslate">
+    <div class="link-row">
+      <a href="house_mechanics1.html" class="invisible-link"></a>
+      <a href="house_mechanics2.html" class="invisible-link"></a>
+      <a href="house_mechanics3.html" class="invisible-link"></a>
+      <a href="house_mechanics3.html" class="invisible-link"></a>
+    </div>
+    <div class="container">
+      <div class="span">
+        <h2 data-type><b>Contracts</b></h2>
+        <p data-type style="margin-bottom: 0;"><b>Obligations</b></p>
+        <ul>
+          <li data-type style="margin-top: 1px;"><b>Funding x3 (3 Obligation):</b> Lose 1 Income. <br>If this faction has no income, they lose <br>2 Thrones at the end of each campaign, breaching the contract if they do not have at least 2 Thrones to lose.</li>
+        </ul>
+        <p data-type style="margin-bottom: 0;"><b>Contracts</b></p>
+        <ul>
+          <li data-type style="margin-top: 1px;"><b>Vassalship Contract (2 Obligation):</b> Gain +2 Standing in a specific faction (inquisition). You may rent units from that faction at a third of the cost (as in, you can transform 30 Force% you own into units from that faction for 1 Income).</li>
+          <li data-type><b>Trading (1 Obligation):</b> Gains a Merchant Charter, and the ability to trade.
+            <ul>
+              <li>Once per campaign, between campaigns, you may run a trade between two Estates owned by other players (see: Estates Lab). </li>
+              <li>Each Estate has an Exotic Production, which you can grab and send to another estate, earning yourself 3 Thrones. The players each receive 1 Throne, and the receiving player receives a bonus depending on the resource. </li>
+              <li>A player can only receive an Exotic Production once every 3 turns (from the RT’s perspective). </li>
+            </ul>
+          </li>
+        </ul>
+        <div id="inputContainer">
+          <span>&gt;</span>
+          <input id="userInput" type="text" autocomplete="off" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      setupPasswordInput();
+    });
+  </script>
+</body>
+</html>
+

@@ -6,7 +6,10 @@ const inputContainer = document.getElementById('inputContainer');
 const routes = {
   home: { url: 'https://jayax123.github.io/Warhammer_Jayax/Teck%20Guys/home.html', password: null },
   help: { url: 'https://jayax123.github.io/Warhammer_Jayax/Teck%20Guys/help.html', password: null },
-  background: { url: 'https://jayax123.github.io/Warhammer_Jayax/Teck%20Guys/character_information/biograghy1.html', password: null }
+  background: { url: 'https://jayax123.github.io/Warhammer_Jayax/Teck%20Guys/character_information/biograghy1.html', password: null },
+  household: { url: 'https://jayax123.github.io/Warhammer_Jayax/Teck%20Guys/household_information/household_information/house_information1', password: null },
+  support: { url: 'https://jayax123.github.io/Warhammer_Jayax/Teck%20Guys/household_information/household_support/house_support1', password: null },
+  mechanic: { url: 'https://jayax123.github.io/Warhammer_Jayax/Teck%20Guys/household_information/household_mechanics/house_mechanics1', password: null }
 };
 
 const passwordData = {
@@ -19,7 +22,7 @@ const passwordData = {
 function typeHTML(parent, speed = 35) {
   return new Promise(async (resolve) => {
     const originalNodes = Array.from(parent.childNodes);
-    parent.textContent = ''; // Clear content safely without destroying style context
+    parent.textContent = '';
 
     async function typeNode(node, container) {
       if (node.nodeType === Node.TEXT_NODE) {
@@ -31,8 +34,6 @@ function typeHTML(parent, speed = 35) {
       } else if (node.nodeType === Node.ELEMENT_NODE) {
         const tag = node.tagName.toLowerCase();
         const newElem = document.createElement(node.tagName);
-
-        // Copy attributes like class, style, src, etc.
         for (let attr of node.attributes) {
           newElem.setAttribute(attr.name, attr.value);
         }

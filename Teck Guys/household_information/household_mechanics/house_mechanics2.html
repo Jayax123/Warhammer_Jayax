@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Household Mechanics</title>
+    <link href="../../main.css" rel="stylesheet">
+</head>
+<body>
+  <div class="stuff">
+    <img src="../../images/Imperial_Dataslate.png" class="background-image" alt="Background Dataslate">
+    <div class="link-row">
+      <a href="house_mechanics1.html" class="invisible-link"></a>
+      <a href="house_mechanics2.html" class="invisible-link"></a>
+      <a href="house_mechanics3.html" class="invisible-link"></a>
+      <a href="house_mechanics3.html" class="invisible-link"></a>
+    </div>
+    <div class="container">
+      <div class="span">
+        <ul>
+            <li data-type><b>Eugenics:</b> This individual, uh… How do I <br>say this? They are a proud practitioner <br>in eugenics and what it can do for you! 
+                <ul>
+                    <li>Start with -1 Supporting Household <br>Points.</li>
+                    <li>All generated Supporting Household Points are only half a point, rather than a full point.</li>
+                    <li>All Supporting Households start at Level 2 when purchased. All Champions phrased as direct family members get a 5% discount on Level 2 and Level 3 Champions. The first level has to be purchased, this bonus can’t be used to gain free level 3 champions from supporting households or any other sources.</li>
+                    <li>+2 Mutation Points for Navigators.</li>
+                    <li>This Household can now purchase Ordo Famulous sororitas. Keeping in mind their rule of ‘No conventional military units can be purchased under this order.’</li>
+                </ul>
+            </li>
+        </ul>
+        <h2 data-type>Standing</h2>
+        <ul>
+          <li data-type style="margin-bottom: 0"><b>Inquisition (+3)</b>
+          <ul>
+            <li style="margin-top: 1px;"><b>3 Standing:</b> Throne Agents are available for rent. These are direct representatives of an Inquisitor, and can allow you to get away with a lot more than usual.  If you have a Throne Agent in your force, you can rent Inquisition specific units for corresponding prices.</li>
+          </ul>
+          </li>
+          <li data-type><b>Mechanicus (-1)</b></li>
+        </ul>
+        <br>
+        <div id="inputContainer">
+          <span>&gt;</span>
+          <input id="userInput" type="text" autocomplete="off" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      setupPasswordInput();
+    });
+  </script>
+</body>
+</html>
+
+

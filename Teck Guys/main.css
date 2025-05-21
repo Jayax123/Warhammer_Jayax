@@ -4,15 +4,15 @@ html, body {
 }
 
 body {
-  color: #C9CDD4;
+  color: #cecdcd;
   background-color: lightgrey;
   font-family: monospace;
 }
 
 .stuff {
   display: grid;
-  grid-template-columns: 1fr 489px 1fr;
-  grid-template-rows: 1fr 671px 1fr;
+  grid-template-columns: 1fr 550.5px 1fr;
+  grid-template-rows: 1fr 795.75px 1fr;
   height: 100vh;
   width: 100vw;
 }
@@ -28,9 +28,10 @@ body {
 .container {
   grid-row: 2;
   grid-column: 2;
-  margin-top: 40px;
-  margin-left: 63px;
-  margin-right: 53px;
+  margin-top: 53px;
+  margin-left: 70px;
+  margin-right: 59px;
+  margin-bottom: 153px;
   z-index: 2;
   position: relative;
 }
@@ -69,14 +70,14 @@ li[data-type] {
   background: transparent;
   outline: none;
   width: 100%;
-  min-width: 150px;
-  max-width: 300px;
-  color: #C9CDD4;
-  flex-grow: 1;
+  color: #cecdcd;
+  font-family: monospace;
+  font-size: 12px;
+  line-height: 18px;
 }
 
 #userInput::placeholder, #passwordInput::placeholder {
-  color: #C9CDD4;
+  color: #cecdcd;
   font-family: monospace;
   opacity: 1;
   font-size: 12px;
@@ -88,15 +89,15 @@ li[data-type] {
   grid-row: 2;
   grid-column: 2;
   position: relative;
-  margin-top: 605px;
-  margin-left: 139px;
-  gap: 15.5px;
+  margin-top: 716px;
+  margin-left: 152px;
+  gap: 12px;
 }
 
 .invisible-link {
   display: inline-block;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   color: transparent;
   border: none;
   cursor: pointer;
@@ -109,17 +110,16 @@ li[data-type] {
   align-items:center; 
   gap:4px; 
   margin-top:0.5rem;
+  width: 75%;
 }
 
 #passwordInput {
-  background: transparent; 
-  border: none; 
-  outline: none; 
-  font-family: monospace; 
-  color: #C9CDD4;
-  flex-grow: 1; 
-  min-width: 150px; 
-  max-width: 300px;
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  color: #cecdcd;
+  font-family: monospace;
   font-size: 12px;
   line-height: 18px;
 }
@@ -133,14 +133,16 @@ p {
 
 ul {
   margin: 0;
-  margin-left: 9px;
   padding: 0;
+  margin-left: 9px;
+  list-style-position: outside;
 }
 
 li {
-  margin-bottom: 2px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   font-size: 12px;
-  line-height: 18px;
+  line-height: 16px;
 }
 
 img:not(.background-image) {
