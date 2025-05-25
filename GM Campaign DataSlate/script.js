@@ -146,7 +146,7 @@ async function startTypingSequence() {
       delete el.dataset.originalContent;
     }
 
-    await typeHTML(el, 15);
+    await typeHTML(el, 20);
   }
 
   if (inputContainer) inputContainer.style.display = 'inline-flex';
