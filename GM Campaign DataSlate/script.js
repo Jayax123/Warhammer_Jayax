@@ -4,23 +4,23 @@ const userInput = document.getElementById('userInput');
 const inputContainer = document.getElementById('inputContainer');
 
 const routes = {
-  "home": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%Campaign%DataSlate/home.html', password: null },
-  "help": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%Campaign%DataSlate/help.html', password: null },
-  "overview": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%Campaign%DataSlate/overview/overview_1.html', password: null },
-  "Granvalis Prime": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%Campaign%DataSlate/planet-information/Granvalis_Prime.html', password: null },
+  "home": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/home.html', password: null },
+  "help": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/help.html', password: null },
+  "overview": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/overview/overview_1.html', password: null },
+  "Granvalis Prime": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/planet-information/Granvalis_Prime.html', password: null },
 
   // === Admin Password ===
-  "compound": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%Campaign%DataSlate/general/compound.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
-  "Harvest Ledger": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%Campaign%DataSlate/general/harvest_ledger.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
-  "Tavian Lirae": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%Campaign%DataSlate/people/administratum_leader.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
-  "VX-09K": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%Campaign%DataSlate/people/mechanicus_leader.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
-  "Fevil Mancar": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%Campaign%DataSlate/people/ministorum_leader.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
-  "Daran Maron": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%Campaign%DataSlate/people/PDF_Commander.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
-  "Elira Campestris": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%Campaign%DataSlate/people/planetary-govenor-daughter.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
-  "Marcus Campestris": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%Campaign%DataSlate/people/planetary-govenor.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
-  "Nocth": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%Campaign%DataSlate/people/warring_bands.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
-  "Carn": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%Campaign%DataSlate/people/warring_leader.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
-  "Ventoria": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%Campaign%DataSlate/planet-information/Ventoria.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
+  "compound": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/compound.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
+  "Harvest Ledger": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/harvest_ledger.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
+  "Tavian Lirae": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/administratum_leader.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
+  "VX-09K": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/mechanicus_leader.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
+  "Fevil Mancar": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/ministorum_leader.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
+  "Daran Maron": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/PDF_Commander.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
+  "Elira Campestris": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/planetary-govenor-daughter.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
+  "Marcus Campestris": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/planetary-govenor.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
+  "Nocth": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/warring_bands.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
+  "Carn": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/warring_leader.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
+  "Ventoria": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/planet-information/Ventoria.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
 };
 
 const passwordData = {
@@ -247,5 +247,7 @@ function setupPasswordInput({
     });
   }
 }
+
+
 
 
