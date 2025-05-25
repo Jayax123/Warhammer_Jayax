@@ -30,10 +30,26 @@ const passwordData = {
 
 // === Typing animation function ===
 
-function typeHTML(parent, speed = 10) {
+async function typeHTML(parent, speed = 10) {
   return new Promise(async (resolve) => {
+    // Skip typing if already typed once
+    if (parent.dataset.typedOnce === 'true') {
+      if (parent.dataset.originalContent) {
+        parent.innerHTML = parent.dataset.originalContent;
+      }
+      parent.style.display = parent.tagName.toLowerCase() === 'li' ? 'list-item' : 'block';
+      resolve();
+      return;
+    }
+
+    // Save original content
+    if (!parent.dataset.originalContent) {
+      parent.dataset.originalContent = parent.innerHTML;
+    }
+
     const originalNodes = Array.from(parent.childNodes);
-    parent.textContent = '';
+    parent.innerHTML = '';
+    parent.style.display = parent.tagName.toLowerCase() === 'li' ? 'list-item' : 'block';
 
     async function typeNode(node, container) {
       if (node.nodeType === Node.TEXT_NODE) {
@@ -44,7 +60,8 @@ function typeHTML(parent, speed = 10) {
         }
       } else if (node.nodeType === Node.ELEMENT_NODE) {
         const tag = node.tagName.toLowerCase();
-        const newElem = document.createElement(node.tagName);
+        const newElem = document.createElement(tag);
+
         for (let attr of node.attributes) {
           newElem.setAttribute(attr.name, attr.value);
         }
@@ -62,9 +79,8 @@ function typeHTML(parent, speed = 10) {
         }
 
         if (tag === 'br') {
-          container.appendChild(newElem);
           return;
-        };
+        }
 
         for (const child of node.childNodes) {
           await typeNode(child, newElem);
@@ -76,6 +92,7 @@ function typeHTML(parent, speed = 10) {
       await typeNode(node, parent);
     }
 
+    parent.dataset.typedOnce = 'true'; // Mark as typed
     resolve();
   });
 }
@@ -247,8 +264,3 @@ function setupPasswordInput({
     });
   }
 }
-
-
-
-
-
