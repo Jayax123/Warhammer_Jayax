@@ -72,7 +72,7 @@ async function typeHTML(parent, speed = 10) {
           await new Promise((r) => {
             newElem.onload = () => r();
             newElem.onerror = () => r();
-            if (newElem.complete) r(); // Already loaded
+            if (newElem.complete) r();
           });
           await new Promise(r => setTimeout(r, speed * 5));
           return;
@@ -92,7 +92,7 @@ async function typeHTML(parent, speed = 10) {
       await typeNode(node, parent);
     }
 
-    parent.dataset.typedOnce = 'true'; // Mark as typed
+    parent.dataset.typedOnce = 'true';
     resolve();
   });
 }
@@ -146,7 +146,7 @@ async function startTypingSequence() {
       delete el.dataset.originalContent;
     }
 
-    await typeHTML(el, 10);
+    await typeHTML(el, 15);
   }
 
   if (inputContainer) inputContainer.style.display = 'inline-flex';
