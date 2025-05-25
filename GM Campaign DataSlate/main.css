@@ -1,0 +1,165 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #65b38a;
+  background-color: lightgrey;
+  font-family: monospace;
+}
+
+.stuff {
+  display: grid;
+  grid-template-columns: 1fr 595px 1fr;
+  grid-template-rows: 1fr 811px 1fr;
+  height: 100vh;
+  width: 100vw;
+}
+
+.background-image {
+  grid-row: 2;
+  grid-column: 2;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+}
+
+.container {
+  grid-row: 2;
+  grid-column: 2;
+  margin-top: 65px;
+  margin-left: 55px;
+  margin-right: 55px;
+  margin-bottom: 50px;
+  z-index: 2;
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% calc(100% - 40px),
+    calc(100% - 40px) 100%,
+    40px 100%,
+    0% calc(100% - 40px)
+  );
+}
+
+.container p, .container h1, .container h2 {
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+[data-type]:not(li) {
+  overflow: hidden;
+  display: none;
+  white-space: pre-wrap;
+}
+
+li[data-type] {
+  display: none;
+  list-style-type: disc;
+  list-style-position: outside;
+  margin-left: 2px;
+}
+
+#inputContainer {
+  display: none;
+  margin-top: .5rem;
+  align-items: center;
+  width: 100%;
+}
+
+#inputContainer span {
+  margin-right: 0.3rem;
+}
+
+#userInput {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  color: #65b38a;
+  font-family: monospace;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+#userInput::placeholder, #passwordInput::placeholder {
+  color: #65b38a;
+  font-family: monospace;
+  opacity: 1;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+#passwordInputContainer {
+  display:flex; 
+  align-items:center; 
+  gap:4px; 
+  margin-top:0.5rem;
+  width: 75%;
+}
+
+#passwordInput {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  color: #65b38a;
+  font-family: monospace;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+/* Styling Stuffs */
+
+p {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  margin-left: 9px;
+  list-style-position: outside;
+}
+
+li {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+img:not(.background-image) {
+  position: absolute;
+  margin: 0;
+}
+
+a {
+  color: #65b38a;
+}
+
+a:active {
+  color: #8af7bd;
+}
+
+a:visited {
+  color: #38694e;
+}
+
+.protected-file li{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.protected-file ul{
+  margin: 0;
+  padding: 0;
+  margin-left: 16px;
+  list-style-position: outside;
+}

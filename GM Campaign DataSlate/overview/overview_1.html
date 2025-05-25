@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>First Overview</title>
+    <link href="../main.css" rel="stylesheet">
+</head>
+<body>
+  <div class="stuff">
+    <img src="../images/Imperial_Dataslate.png" class="background-image" alt="Background Dataslate">
+    <div class="container">
+      <div class="span">
+        <h1 data-type>First Overview</h1>
+        <h2 data-type>Welcome!</h2>
+        <p data-type>To provide a better overview of the battlefield's progress, this overview screen will be continuously updated with the latest information. Simply enter "overview" into the command line to display the most recent situation report.</p>
+        <h2 data-type>How Do I See Pas Overviews?</h2>
+        <p data-type>Simply type "Overview_[number]", replacing [number] with the desired overview number, and it will display the corresponding previous overview!.</p>
+        <div id="inputContainer">
+          <span>&gt;</span>
+          <input id="userInput" style="width: 55%;" type="text" autocomplete="off" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      setupPasswordInput();
+    });
+  </script>
+</body>
+</html>
