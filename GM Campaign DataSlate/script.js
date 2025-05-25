@@ -206,7 +206,7 @@ if (userInput) {
 
       if (input === 'enable animation') {
         animationsEnabled = true;
-        localStorage.setItem('animationsEnabled', 'true');
+        sessionStorage.setItem('animationsEnabled', 'true');
         userInput.value = '';
         userInput.placeholder = 'Animations enabled.';
         return;
