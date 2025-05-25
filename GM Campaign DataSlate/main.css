@@ -64,7 +64,7 @@ li[data-type] {
 }
 
 #inputContainer {
-  display: none;
+  display: none; 
   margin-top: .5rem;
   align-items: center;
   width: 100%;
@@ -94,7 +94,7 @@ li[data-type] {
 }
 
 #passwordInputContainer {
-  display:flex; 
+  display:none; 
   align-items:center; 
   gap:4px; 
   margin-top:0.5rem;
@@ -111,6 +111,7 @@ li[data-type] {
   font-size: 12px;
   line-height: 18px;
 }
+
 
 /* Styling Stuffs */
 

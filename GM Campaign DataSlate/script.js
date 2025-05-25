@@ -28,73 +28,83 @@ const passwordData = {
   Guest: ['fileOther1','fileOther2','fileOther3','fileOther4','fileOther5'],
 };
 
+// === Persistent animation enabled/disabled flag ===
+let animationsEnabled = sessionStorage.getItem('animationsEnabled');
+if (animationsEnabled === null) {
+  animationsEnabled = true;
+} else {
+  animationsEnabled = animationsEnabled === 'true';
+}
+
 // === Typing animation function ===
-
 async function typeHTML(parent, speed = 10) {
-  return new Promise(async (resolve) => {
-    // Skip typing if already typed once
-    if (parent.dataset.typedOnce === 'true') {
-      if (parent.dataset.originalContent) {
-        parent.innerHTML = parent.dataset.originalContent;
-      }
-      parent.style.display = parent.tagName.toLowerCase() === 'li' ? 'list-item' : 'block';
-      resolve();
-      return;
+  if (!animationsEnabled) {
+    if (parent.dataset.originalContent) {
+      parent.innerHTML = parent.dataset.originalContent;
     }
-
-    // Save original content
-    if (!parent.dataset.originalContent) {
-      parent.dataset.originalContent = parent.innerHTML;
-    }
-
-    const originalNodes = Array.from(parent.childNodes);
-    parent.innerHTML = '';
     parent.style.display = parent.tagName.toLowerCase() === 'li' ? 'list-item' : 'block';
+    parent.dataset.typedOnce = 'true';
+    return Promise.resolve();
+  }
 
-    async function typeNode(node, container) {
-      if (node.nodeType === Node.TEXT_NODE) {
-        const text = node.textContent;
-        for (let i = 0; i < text.length; i++) {
-          container.appendChild(document.createTextNode(text[i]));
-          await new Promise(r => setTimeout(r, speed));
-        }
-      } else if (node.nodeType === Node.ELEMENT_NODE) {
-        const tag = node.tagName.toLowerCase();
-        const newElem = document.createElement(tag);
+  if (parent.dataset.typedOnce === 'true') {
+    if (parent.dataset.originalContent) {
+      parent.innerHTML = parent.dataset.originalContent;
+    }
+    parent.style.display = parent.tagName.toLowerCase() === 'li' ? 'list-item' : 'block';
+    return Promise.resolve();
+  }
 
-        for (let attr of node.attributes) {
-          newElem.setAttribute(attr.name, attr.value);
-        }
+  if (!parent.dataset.originalContent) {
+    parent.dataset.originalContent = parent.innerHTML;
+  }
 
-        container.appendChild(newElem);
+  const originalNodes = Array.from(parent.childNodes);
+  parent.innerHTML = '';
+  parent.style.display = parent.tagName.toLowerCase() === 'li' ? 'list-item' : 'block';
 
-        if (tag === 'img') {
-          await new Promise((r) => {
-            newElem.onload = () => r();
-            newElem.onerror = () => r();
-            if (newElem.complete) r();
-          });
-          await new Promise(r => setTimeout(r, speed * 5));
-          return;
-        }
+  async function typeNode(node, container) {
+    if (node.nodeType === Node.TEXT_NODE) {
+      const text = node.textContent;
+      for (let i = 0; i < text.length; i++) {
+        container.appendChild(document.createTextNode(text[i]));
+        await new Promise(r => setTimeout(r, speed));
+      }
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      const tag = node.tagName.toLowerCase();
+      const newElem = document.createElement(tag);
 
-        if (tag === 'br') {
-          return;
-        }
+      for (let attr of node.attributes) {
+        newElem.setAttribute(attr.name, attr.value);
+      }
 
-        for (const child of node.childNodes) {
-          await typeNode(child, newElem);
-        }
+      container.appendChild(newElem);
+
+      if (tag === 'img') {
+        await new Promise((r) => {
+          newElem.onload = () => r();
+          newElem.onerror = () => r();
+          if (newElem.complete) r();
+        });
+        await new Promise(r => setTimeout(r, speed * 5));
+        return;
+      }
+
+      if (tag === 'br') {
+        return;
+      }
+
+      for (const child of node.childNodes) {
+        await typeNode(child, newElem);
       }
     }
+  }
 
-    for (const node of originalNodes) {
-      await typeNode(node, parent);
-    }
+  for (const node of originalNodes) {
+    await typeNode(node, parent);
+  }
 
-    parent.dataset.typedOnce = 'true';
-    resolve();
-  });
+  parent.dataset.typedOnce = 'true';
 }
 
 // === Hide/show protected content ===
@@ -118,10 +128,18 @@ function showProtected(password) {
     if (!el.dataset.originalContent) {
       el.dataset.originalContent = el.innerHTML;
     }
-    el.innerHTML = '';
+
     el.style.display = 'block';
+
+    if (animationsEnabled) {
+      el.innerHTML = '';
+    } else {
+      el.innerHTML = el.dataset.originalContent;
+      el.dataset.typedOnce = 'true';
+    }
   });
 }
+
 
 // === Initialize: hide protected, show if accepted ===
 
@@ -153,6 +171,7 @@ async function startTypingSequence() {
   if (userInput) userInput.focus();
 }
 
+// Run the typing sequence on page load:
 startTypingSequence();
 
 // === User command input handler ===
@@ -162,6 +181,37 @@ if (userInput) {
       if (!inputContainer || inputContainer.style.display === 'none') return;
 
       const input = userInput.value.trim().toLowerCase();
+
+      if (input === 'disable animation') {
+        userInput.value = '';
+        userInput.placeholder = 'Animations disabled.';
+        
+        animationsEnabled = false;
+        sessionStorage.setItem('animationsEnabled', 'false');
+
+        const allTypedElements = document.querySelectorAll('[data-type], .protected-file');
+        allTypedElements.forEach(el => {
+          if (el.dataset.originalContent) {
+            el.innerHTML = el.dataset.originalContent;
+            el.style.display = el.tagName.toLowerCase() === 'li' ? 'list-item' : 'block';
+            el.dataset.typedOnce = 'true';
+          }
+        });
+
+        if (inputContainer) inputContainer.style.display = 'inline-flex';
+        userInput.focus();
+
+        return;
+      }
+
+      if (input === 'enable animation') {
+        animationsEnabled = true;
+        localStorage.setItem('animationsEnabled', 'true');
+        userInput.value = '';
+        userInput.placeholder = 'Animations enabled.';
+        return;
+      }
+
       const acceptedPassword = sessionStorage.getItem('acceptedPassword');
       const route = routes[input];
 
@@ -181,7 +231,6 @@ if (userInput) {
 }
 
 // === Password input handling ===
-
 function setupPasswordInput({
   inputId = 'passwordInput',
   redirectDelaySeconds = 1,
@@ -190,25 +239,29 @@ function setupPasswordInput({
   const input = document.getElementById(inputId);
   const passwordInputContainer = document.getElementById('passwordInputContainer') || document.getElementById('inputContainer');
 
-  if (passwordInputContainer) {
-    passwordInputContainer.style.display = 'none';
-  }
-
   hideAllProtected();
 
-  async function startTypingSequence() {
-    const elements = Array.from(document.querySelectorAll('[data-type], .protected-file'))
-      .filter(el => !el.classList.contains('protected-file'));
+  async function typeAndShowProtected(password) {
+    const elIds = passwordData[password];
+    if (!elIds) return;
 
-    for (const el of elements) {
-      el.style.display = el.tagName.toLowerCase() === 'li' ? 'list-item' : 'block';
-      await typeHTML(el, 20);
-    }
+    for (const elId of elIds) {
+      const el = document.getElementById(elId);
+      if (!el) continue;
 
-    const acceptedPassword = sessionStorage.getItem('acceptedPassword');
-    if (!acceptedPassword && passwordInputContainer) {
-      passwordInputContainer.style.display = 'inline-flex';
-      if (input) input.focus();
+      if (!el.dataset.originalContent) {
+        el.dataset.originalContent = el.innerHTML;
+      }
+
+      el.style.display = 'block';
+
+      if (animationsEnabled) {
+        el.innerHTML = '';
+        await typeHTML(el, 20);
+      } else {
+        el.innerHTML = el.dataset.originalContent;
+        el.dataset.typedOnce = 'true';
+      }
     }
   }
 
@@ -218,7 +271,19 @@ function setupPasswordInput({
     showProtected(acceptedPassword);
     if (passwordInputContainer) passwordInputContainer.style.display = 'none';
   } else {
-    startTypingSequence();
+    (async () => {
+      const hideOnAuthElements = Array.from(document.querySelectorAll('.hide-on-auth'));
+      
+      for (const el of hideOnAuthElements) {
+        el.style.display = el.tagName.toLowerCase() === 'li' ? 'list-item' : 'block';
+        await typeHTML(el, 20);
+      }
+
+      if (passwordInputContainer) {
+        passwordInputContainer.style.display = 'inline-flex';
+      }
+      if (input) input.focus();
+    })();
   }
 
   if (input) {
@@ -230,25 +295,15 @@ function setupPasswordInput({
         if (passwordData[entered]) {
           sessionStorage.setItem('acceptedPassword', entered);
 
-          if (passwordInputContainer) passwordInputContainer.style.display = 'none';
           document.querySelectorAll('.hide-on-auth').forEach(el => {
             el.style.display = 'none';
           });
 
-          hideAllProtected();
-          showProtected(entered);
+          if (passwordInputContainer) passwordInputContainer.style.display = 'none';
 
-          const elIds = passwordData[entered];
-          for (const elId of elIds) {
-            const el = document.getElementById(elId);
-            if (el) {
-              if (el.dataset.originalContent) {
-                el.innerHTML = el.dataset.originalContent;
-                delete el.dataset.originalContent;
-              }
-              await typeHTML(el, 20);
-            }
-          }
+          hideAllProtected();
+
+          await typeAndShowProtected(entered);
 
           input.value = '';
           input.placeholder = '';
@@ -256,6 +311,7 @@ function setupPasswordInput({
           setTimeout(() => {
             window.location.href = redirectURL;
           }, redirectDelaySeconds * 1000);
+
         } else {
           input.value = '';
           input.placeholder = 'Incorrect password. Try again.';
@@ -264,3 +320,13 @@ function setupPasswordInput({
     });
   }
 }
+
+setupPasswordInput({
+  inputId: 'passwordInput',
+  redirectDelaySeconds: 1,
+  redirectURL: 'home.html'
+});
+
+
+
+//window.addEventListener('load', () => {sessionStorage.clear();});
