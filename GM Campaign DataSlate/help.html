@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Help</title>
-  <link href="./main.css" rel="stylesheet" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Help</title>
+    <link href="./main.css" rel="stylesheet" />
 </head>
 <body>
   <div class="stuff">
@@ -12,31 +12,45 @@
     <div class="container">
       <div class="span">
 
-        <!-- ADMIN CONTENT -->
         <div class="protected-file" id="admin1" style="display:none;">
-          <h1>ADMIN COMMANDS</h1>
-          <ul>
-            <li><p><b>Home:</b> Takes you to the home entry, where a brief introduction can be found.</p></li>
-            <!-- ... other items ... -->
-            <li><p><b>Ventoria:</b> Short summary of Venotria City, the largest city on Granvalis Prime.</p></li>
-          </ul>
+            <h1>ADMIN COMMANDS</h1>
+            <ul>
+                <li><p><b>Home: </b>Takes you to the home entry, where a brief introduction can be found.</p></li>
+                <li><p><b>Help: </b>Lists all available commands for the user.</p></li>
+                <li><p><b>Overview: </b>Provides a basic overview of the current situation on the planet. Type "Overview" for the most recent report or enter "Overview [number]" with a specific number to view a past overview.</p></li>
+                <li><p><b>Granvalis Prime: </b>Introduction to Granvalis Prime.</p></li>
+                <li><p><b>Compound: </b>Describes a unique pesticide used on Granvalis Prime.</p></li>
+                <li><p><b>Harvest Ledger: </b>Report on where a year’s harvest is going.</p></li>
+                <li><p><b>Tavian Lirae: </b> Background on the current leader of the Administratum on the planet’s surface.</p></li>
+                <li><p><b>VX-09K: </b>Background on the current leader of the Mechanicus on the planet’s surface.</p></li>
+                <li><p><b>Fevil Mancar: </b>Background on the current leader of the Ministorum on the planet’s surface.</p></li>
+                <li><p><b>Daran Maron: </b>Background on the current commander of the Planetary Defence Forces on the planet’s surface.</p></li>
+                <li><p><b>Elira Campestris: </b> Data gathered on the daughter of Marcus Campestris, the planetary governor.</p></li>
+                <li><p><b>Marcus Campestris: </b> Background on the planetary governor of Granvalis Prime.</p></li>
+                <li><p><b>Nocth: </b>Summary of Nocth presence and forces on Granvalis Prime.</p></li>
+                <li><p><b>Carn: </b>Report on the leader of Nocth forces on Granvalis Prime.</p></li>
+                <li><p><b>Ventoria: </b>Short summary of Venotria City, the largest city on Granvalis Prime.</p></li>
+            </ul>
         </div>
 
-        <!-- GUEST CONTENT -->
         <div class="protected-file" id="fileOther1" style="display:none;">
-          <h1>GUEST COMMANDS</h1>
-          <ul>
-            <li><p><b>Home:</b> Takes you to the home entry, where a brief introduction can be found.</p></li>
-            <li><p><b>Help:</b> Lists all available commands for the user.</p></li>
-            <li><p><b>Overview:</b> Provides a basic overview of the current situation on the planet.</p></li>
-            <li><p><b>Granvalis Prime:</b> Introduction to Granvalis Prime.</p></li>
-          </ul>
+            <h1>GUEST COMMANDS</h1>
+            <ul>
+                <li><p><b>Home: </b>Takes you to the home entry, where a brief introduction can be found.</p></li>
+                <li><p><b>Help: </b>Lists all available commands for the user.</p></li>
+                <li><p><b>Overview: </b>Provides a basic overview of the current situation on the planet. Type "Overview" for the most recent report or enter "Overview [number]" with a specific number to view a past overview.</p></li>
+                <li><p><b>Granvalis Prime: </b>Introduction to Granvalis Prime.</p></li>
+            </ul>
         </div>
 
-        <!-- INPUT CONTAINER: moved outside -->
-        <div id="inputContainer" style="margin-top: 0px;">
-          <span>&gt;</span>
-          <input id="userInput" type="text" autocomplete="off" />
+        <ul style="margin-left: 16px; margin-top: 0;">
+            <li data-type><b>Disable Animation:</b> Disables animation effect.</li>
+            <li data-type><b>Enable Animation:</b> Enable animation effect.</li>
+        </ul>
+
+        <div id="inputContainer" style="display: inline-flex; margin-top: 1rem;">
+          <span>&gt;&nbsp;</span>
+          <input id="userInput" type="text" autocomplete="off"/>
         </div>
 
       </div>
