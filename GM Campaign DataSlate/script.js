@@ -9,6 +9,7 @@ const routes = {
   "overview": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/overview/overview_1.html', password: null },
   "granvalis prime": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/planet-information/Granvalis_Prime.html', password: null },
   "ventoria": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/planet-information/Ventoria.html', password: null },
+  "mission statment": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/mission_statment.html', password: null },
 
   // === Admin Password ===
   "compound": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/compound.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
