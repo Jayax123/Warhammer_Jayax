@@ -8,6 +8,7 @@ const routes = {
   "help": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/help.html', password: null },
   "overview": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/overview/overview_1.html', password: null },
   "granvalis prime": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/planet-information/Granvalis_Prime.html', password: null },
+  "ventoria": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/planet-information/Ventoria.html', password: null },
 
   // === Admin Password ===
   "compound": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/compound.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
@@ -20,7 +21,7 @@ const routes = {
   "marcus campestris": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/planetary-govenor.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
   "nocth": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/warring_bands.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
   "carn": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/warring_leader.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
-  "ventoria": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/planet-information/Ventoria.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
+  "church": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/planet-information/church.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
 };
 
 
