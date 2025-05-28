@@ -23,12 +23,59 @@ const routes = {
   "nocth": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/warring_bands.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
   "carn": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/warring_leader.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
   "church": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/planet-information/church.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
+
+  // === Tidus Password ===
+  "marcus campestris": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/planetary-govenor.html', password: "HandsofGold" },
+  "daran maron": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/PDF_Commander.html', password: "HandsofGold" },
+
+  // === Rohland Password ===
+  "daran maron": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/PDF_Commander.html', password: "Trommelfeuer" },
+
+  // === Argo Password ===
+  "daran maron": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/PDF_Commander.html', password: "1nfern0_2950" },
+
+  // === Amarain Password ===
+  "compound": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/compound.html', password: "Argenta" },
+  "tavian lirae": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/administratum_leader.html', password: "Argenta" },
+
+  // === Roomba Password ===
+  "marcus campestris": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/planetary-govenor.html', password: "Roooooooombarion" },
+  "vx-09k": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/mechanicus_leader.html', password: "Roooooooombarion" },
+
+  // === Blue Rose Password ===
+  "daran maron": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/PDF_Commander.html', password: "Vikka99" },
+
+  // === Venner Password ===
+  "tavian lirae": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/administratum_leader.html', password: "Private Detective Rieper" },
+  "nocth": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/warring_bands.html', password: "Private Detective Rieper" },
+  "marcus campestris": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/planetary-govenor.html', password: "Private Detective Rieper" },
+  "crime intel report": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/Venner_Underworld_intel.html', password: "Private Detective Rieper" },
+  "admin intel report": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/Venner_Underworld_intel.html', password: "Private Detective Rieper" },
+
+  // === Anomalous Password ===
+  "nocth": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/warring_bands.html', password: "MZhTI33CLOK2z3" },
+  "marcus campestris": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/planetary-govenor.html', password: "MZhTI33CLOK2z3" },
+  "problem intel report": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/anom_technical_report.html', password: "MZhTI33CLOK2z3" },
+
+  // === Spaz Password ===
+  "marcus campestris": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/planetary-govenor.html', password: "H1sW1llSh@11" },
+  "church": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/planet-information/church.html', password: "H1sW1llSh@11" },
+  "fevil mancar": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/ministorum_leader.html', password: "H1sW1llSh@11" },
 };
 
 
 const passwordData = {
-    Fighold1jdneidj_idvncj1odscin9sdcjn: ['admin1', 'admin2', 'admin3', 'admin4', 'admin5'],
-    Guest: ['fileOther1', 'fileOther2', 'fileOther3', 'fileOther4', 'fileOther5'],
+    "Fighold1jdneidj_idvncj1odscin9sdcjn": ['admin1', 'admin2', 'admin3', 'admin4', 'admin5'],
+    "Guest": ['fileOther1', 'fileOther2', 'fileOther3', 'fileOther4', 'fileOther5'],
+    "HandsofGold": ['gold1', 'gold2','gold3','gold4','gold5'],
+    "Trommelfeuer": ['tom1', 'tom2','tom3','tom4','tom5'],
+    "1nfern0_2950": ['arg1', 'arg2','arg3','arg4','arg5'],
+    "Argenta": ['Argenta1', 'Argenta2','Argenta3','Argenta4','Argenta5'],
+    "Roooooooombarion": ['Rom1', 'Rom2','Rom3','Rom4','Rom5'],
+    "Vikka99": ['Ros1', 'Ros2','Ros3','Ros4','Ros5'],
+    "Private Detective Rieper": ['Ri1', 'Ri2','Ri3','Ri4','Ri5'],
+    "MZhTI33CLOK2z3": ['anom1', 'anom2','anom3','anom4','anom5'],
+    "H1sW1llSh@11": ['sp1', 'sp2','sp3','sp4','sp5'],
 };
 
 // === Persistent animation enabled/disabled flag ===

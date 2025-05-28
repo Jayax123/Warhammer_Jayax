@@ -120,6 +120,11 @@ p {
   line-height: 18px;
 }
 
+.protected-file {
+  font-size: 12px;
+  line-height: 18px;
+}
+
 ul {
   margin: 0;
   padding: 0;
