@@ -4,64 +4,90 @@ const userInput = document.getElementById('userInput');
 const inputContainer = document.getElementById('inputContainer');
 
 const routes = {
-  "home": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/home.html', password: null },
-  "help": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/help.html', password: null },
-  "overview": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/overview/overview_1.html', password: null },
-  "granvalis prime": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/planet-information/Granvalis_Prime.html', password: null },
-  "ventoria": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/planet-information/Ventoria.html', password: null },
-  "mission statment": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/mission_statment.html', password: null },
+  "home": { 
+    url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/home.html', 
+    passwords: null 
+  },
+  "help": { 
+    url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/help.html', 
+    passwords: null 
+  },
+  "overview": { 
+    url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/overview/overview_1.html', 
+    passwords: null 
+  },
+  "granvalis prime": { 
+    url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/planet-information/Granvalis_Prime.html', 
+    passwords: null 
+  },
+  "ventoria": { 
+    url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/planet-information/Ventoria.html', 
+    passwords: null 
+  },
+  "mission statment": { 
+    url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/mission_statment.html', 
+    passwords: null 
+  },
 
-  // === Admin Password ===
-  "compound": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/compound.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
-  "harvest ledger": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/harvest_ledger.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
-  "tavian lirae": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/administratum_leader.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
-  "vx-09k": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/mechanicus_leader.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
-  "fevil mancar": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/ministorum_leader.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
-  "daran maron": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/PDF_Commander.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
-  "elira campestris": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/planetary-govenor-daughter.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
-  "marcus campestris": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/planetary-govenor.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
-  "nocth": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/warring_bands.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
-  "carn": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/warring_leader.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
-  "church": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/planet-information/church.html', password: "Fighold1jdneidj_idvncj1odscin9sdcjn" },
-
-  // === Tidus Password ===
-  "marcus campestris": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/planetary-govenor.html', password: "HandsofGold" },
-  "daran maron": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/PDF_Commander.html', password: "HandsofGold" },
-
-  // === Rohland Password ===
-  "daran maron": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/PDF_Commander.html', password: "Trommelfeuer" },
-
-  // === Argo Password ===
-  "daran maron": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/PDF_Commander.html', password: "1nfern0_2950" },
-
-  // === Amarain Password ===
-  "compound": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/compound.html', password: "Argenta" },
-  "tavian lirae": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/administratum_leader.html', password: "Argenta" },
-
-  // === Roomba Password ===
-  "marcus campestris": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/planetary-govenor.html', password: "Roooooooombarion" },
-  "vx-09k": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/mechanicus_leader.html', password: "Roooooooombarion" },
-
-  // === Blue Rose Password ===
-  "daran maron": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/PDF_Commander.html', password: "Vikka99" },
-
-  // === Venner Password ===
-  "tavian lirae": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/administratum_leader.html', password: "Private Detective Rieper" },
-  "nocth": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/warring_bands.html', password: "Private Detective Rieper" },
-  "marcus campestris": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/planetary-govenor.html', password: "Private Detective Rieper" },
-  "crime intel report": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/Venner_Underworld_intel.html', password: "Private Detective Rieper" },
-  "admin intel report": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/Venner_Underworld_intel.html', password: "Private Detective Rieper" },
-
-  // === Anomalous Password ===
-  "nocth": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/warring_bands.html', password: "MZhTI33CLOK2z3" },
-  "marcus campestris": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/planetary-govenor.html', password: "MZhTI33CLOK2z3" },
-  "problem intel report": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/anom_technical_report.html', password: "MZhTI33CLOK2z3" },
-
-  // === Spaz Password ===
-  "marcus campestris": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/planetary-govenor.html', password: "H1sW1llSh@11" },
-  "church": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/planet-information/church.html', password: "H1sW1llSh@11" },
-  "fevil mancar": { url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/ministorum_leader.html', password: "H1sW1llSh@11" },
+  // === Protected Routes ===
+  "compound": { 
+    url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/compound.html', 
+    passwords: ["Fighold1jdneidj_idvncj1odscin9sdcjn", "Argenta"] 
+  },
+  "harvest ledger": { 
+    url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/harvest_ledger.html', 
+    passwords: ["Fighold1jdneidj_idvncj1odscin9sdcjn"] 
+  },
+  "tavian lirae": { 
+    url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/administratum_leader.html', 
+    passwords: ["Fighold1jdneidj_idvncj1odscin9sdcjn", "Argenta", "Private Detective Rieper"] 
+  },
+  "vx-09k": { 
+    url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/mechanicus_leader.html', 
+    passwords: ["Fighold1jdneidj_idvncj1odscin9sdcjn", "Roooooooombarion"] 
+  },
+  "fevil mancar": { 
+    url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/ministorum_leader.html', 
+    passwords: ["Fighold1jdneidj_idvncj1odscin9sdcjn", "H1sW1llSh@11"] 
+  },
+  "daran maron": { 
+    url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/PDF_Commander.html', 
+    passwords: ["Fighold1jdneidj_idvncj1odscin9sdcjn", "HandsofGold", "Trommelfeuer", "1nfern0_2950", "Vikka99"] 
+  },
+  "elira campestris": { 
+    url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/planetary-govenor-daughter.html', 
+    passwords: ["Fighold1jdneidj_idvncj1odscin9sdcjn"] 
+  },
+  "marcus campestris": { 
+    url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/planetary-govenor.html', 
+    passwords: ["Fighold1jdneidj_idvncj1odscin9sdcjn", "HandsofGold", "Private Detective Rieper", "MZhTI33CLOK2z3", "Roooooooombarion", "H1sW1llSh@11"] 
+  },
+  "nocth": { 
+    url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/warring_bands.html', 
+    passwords: ["Fighold1jdneidj_idvncj1odscin9sdcjn", "Private Detective Rieper", "MZhTI33CLOK2z3"] 
+  },
+  "carn": { 
+    url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/warring_leader.html', 
+    passwords: ["Fighold1jdneidj_idvncj1odscin9sdcjn"] 
+  },
+  "church": { 
+    url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/planet-information/church.html', 
+    passwords: ["Fighold1jdneidj_idvncj1odscin9sdcjn", "H1sW1llSh@11"] 
+  },
+  "crime intel report": { 
+    url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/Venner_Underworld_intel.html', 
+    passwords: ["Private Detective Rieper"] 
+  },
+  "admin intel report": { 
+    url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/Venner_Underworld_intel.html', 
+    passwords: ["Private Detective Rieper"] 
+  },
+  "problem intel report": { 
+    url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/anom_technical_report.html', 
+    passwords: ["MZhTI33CLOK2z3"] 
+  }
 };
+
 
 
 const passwordData = {
@@ -274,7 +300,7 @@ if (userInput) {
             const route = routes[input];
 
             if (route) {
-                if (!route.password || route.password === acceptedPassword) {
+                if (!route.passwords || route.passwords.includes(acceptedPassword)) {
                     window.location.href = route.url;
                 } else {
                     userInput.value = '';
