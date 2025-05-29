@@ -52,7 +52,7 @@ const routes = {
   },
   "daran maron": { 
     url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/PDF_Commander.html', 
-    passwords: ["Fighold1jdneidj_idvncj1odscin9sdcjn", "HandsofGold", "Trommelfeuer", "1nfern0_2950", "Vikka99"] 
+    passwords: ["Fighold1jdneidj_idvncj1odscin9sdcjn", "CommandInElegance343", "Trommelfeuer", "1nfern0_2950", "Vikka99"] 
   },
   "elira campestris": { 
     url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/planetary-govenor-daughter.html', 
@@ -60,7 +60,7 @@ const routes = {
   },
   "marcus campestris": { 
     url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/planetary-govenor.html', 
-    passwords: ["Fighold1jdneidj_idvncj1odscin9sdcjn", "HandsofGold", "Private Detective Rieper", "MZhTI33CLOK2z3", "Roooooooombarion", "H1sW1llSh@11"] 
+    passwords: ["Fighold1jdneidj_idvncj1odscin9sdcjn", "CommandInElegance343", "Private Detective Rieper", "MZhTI33CLOK2z3", "Roooooooombarion", "H1sW1llSh@11"] 
   },
   "nocth": { 
     url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/warring_bands.html', 
@@ -93,7 +93,7 @@ const routes = {
 const passwordData = {
     "Fighold1jdneidj_idvncj1odscin9sdcjn": ['admin1', 'admin2', 'admin3', 'admin4', 'admin5'],
     "Guest": ['fileOther1', 'fileOther2', 'fileOther3', 'fileOther4', 'fileOther5'],
-    "HandsofGold": ['gold1', 'gold2','gold3','gold4','gold5'],
+    "CommandInElegance343": ['gold1', 'gold2','gold3','gold4','gold5'],
     "Trommelfeuer": ['tom1', 'tom2','tom3','tom4','tom5'],
     "1nfern0_2950": ['arg1', 'arg2','arg3','arg4','arg5'],
     "Argenta": ['Argenta1', 'Argenta2','Argenta3','Argenta4','Argenta5'],
