@@ -79,7 +79,7 @@ const routes = {
     passwords: ["Private Detective Rieper"] 
   },
   "admin intel report": { 
-    url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/Venner_Underworld_intel.html', 
+    url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/Venner_Admin_intel.html', 
     passwords: ["Private Detective Rieper"] 
   },
   "problem intel report": { 
