@@ -89,6 +89,10 @@ const routes = {
   "team intel report": { 
     url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/roomba_intel_report.html', 
     passwords: ["Roooooooombarion"] 
+  },
+  "governor intel report": { 
+    url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/mack_planetary_report.html', 
+    passwords: ["H1sW1llSh@11"] 
   }
 };
 
