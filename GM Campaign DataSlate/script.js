@@ -40,7 +40,7 @@ const routes = {
   },
   "tavian lirae": { 
     url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/administratum_leader.html', 
-    passwords: ["Fighold1jdneidj_idvncj1odscin9sdcjn", "Argenta", "Private Detective Rieper"] 
+    passwords: ["Fighold1jdneidj_idvncj1odscin9sdcjn", "Argenta", "Private Detective Rieper","Roooooooombarion"] 
   },
   "vx-09k": { 
     url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/mechanicus_leader.html', 
@@ -85,6 +85,10 @@ const routes = {
   "problem intel report": { 
     url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/anom_technical_report.html', 
     passwords: ["MZhTI33CLOK2z3"] 
+  },
+  "team intel report": { 
+    url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/roomba_intel_report.html', 
+    passwords: ["Roooooooombarion"] 
   }
 };
 
