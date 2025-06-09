@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Character Information</title>
+    <link href="../main.css" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <img class="data-slate" src="../Images/Data_Slate.png">
+        <div class="buttons">
+        <a href="#" class="toggle_typing" onclick="toggleTyping(); return false;"></a>
+        <a href="#" class="increase_speed" onclick="increaseSpeed(); return false;"></a>
+        <a href="#" class="decrease_speed" onclick="decreaseSpeed(); return false;"></a>
+        <a href="#" class="reset_setting" onclick="resetTypingSettings(); return false;"></a>
+        <a href="#" class="reset_typing" onclick="restartTyping(); return false;"></a>
+
+        <!--PAGE LINKS-->
+        <a class="page1" href="character_information1.html"></a>
+        <a class="page2" href="character_information2.html"></a>
+        <a class="page3" href="character_information3.html"></a>
+        <a class="page4" href="character_information4.html"></a>
+        <a class="page5" href="character_information5.html"></a>
+
+        <!--SECTION LINKS-->
+        <a class="previous_section" href="../home.html"></a>
+        <a class="next_section" href="../household_information/household_information1.html"></a>
+        <div class="animated">
+            <h1 style="margin-bottom: 1px;">Welcome</h1>
+            <p>The Nomenics data-slate allows easy navigation of information for Nomenica personnel. Each button serves a specific purpose in navigating the data-slate.</p>
+            <P>First, you have the buttons on the left side. Each button controls how the text you are reading is generated. Here is what each button does, listed from top to bottom:</P>
+            <ul>
+                <li><p><b>Top Button: </b>Disables the text animation effect.</p></li>
+                <li><p><b>Second Button: </b>Increases the typing animation speed; at maximum, it disables the animation effect.</p></li>
+                <li><p><b>Third Button: </b>Decreases typing animation speed.</p></li>
+                <li><p><b>Fourth Button: </b>Resets animation to default settings.</p></li>
+                <li><p><b>Bottom Button: </b>Resets animation effect on page.</p></li>
+            </ul>
+            <p>The bottom-numbered buttons allow you to navigate between pages within the current section. If the section has fewer pages than there are buttons, the extra buttons will take you to the last available page. For example, if the 'Character Information' section has 3 pages, buttons 4 and 5 will both take you to page 3.</p>
+            <p>The knob allows you to navigate between sections. Click the left side of the knob to go to the previous section, and click the right side to move to the next section.</p>
+        </div>
+    </div>
+</body>
+<script src="../main.js"></script>
+</html>
