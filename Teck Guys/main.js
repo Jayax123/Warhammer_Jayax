@@ -138,7 +138,7 @@ function restartTyping() {
 
 function toggleTyping() {
     typingEnabled = !typingEnabled;
-    hardTypingDisabled = false;
+    hardTypingDisabled = !typingEnabled;
     saveSettings();
     restartTyping();
 }
@@ -159,7 +159,7 @@ function disableTyping() {
 
 function increaseSpeed() {
     if (hardTypingDisabled) return;
-    typingSpeed -= 10;
+    typingSpeed = Math.max(typingMinSpeed, typingSpeed - 10);
     if (typingSpeed <= typingMinSpeed) {
         typingEnabled = false;
         hardTypingDisabled = true;
@@ -172,12 +172,11 @@ function increaseSpeed() {
 }
 
 function decreaseSpeed() {
-    if (hardTypingDisabled) {
-        hardTypingDisabled = false;
-        typingEnabled = true;
-    }
+    if (hardTypingDisabled) return;
     typingSpeed = Math.min(typingMaxSpeed, typingSpeed + 10);
     if (typingSpeed < typingMinSpeed) typingSpeed = typingMinSpeed;
+    typingEnabled = true;
+    hardTypingDisabled = false;
     saveSettings();
     restartTyping();
 }
@@ -252,6 +251,36 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.location.pathname.endsWith('password.html')) {
         redirectWithTemporaryTypingOverride('home.html', 20);
     } else {
-        animateTyping();
+        if (hardTypingDisabled || !typingEnabled) {
+            const elements = document.querySelectorAll('.animated');
+            elements.forEach(el => {
+                const originalHTML = el.innerHTML;
+                const dummy = document.createElement('div');
+                dummy.innerHTML = originalHTML;
+                const structure = parseNodes(dummy);
+                originalContentMap.set(el, structure);
+                el.innerHTML = '';
+                showAll(el, structure);
+            });
+        } else {
+            animateTyping();
+        }
     }
 });
+
+
+function showRandomDiv() {
+    const container = document.querySelector('#random');
+    if (!container) return;
+    const children = Array.from(container.children);
+    if (children.length === 0) return;
+    children.forEach(div => {
+        div.style.display = 'none';
+    });
+    const randomIndex = Math.floor(Math.random() * children.length);
+    children[randomIndex].style.display = 'block';
+}
+
+
+
+// <body onload="showRandomDiv()">
