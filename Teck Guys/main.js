@@ -158,7 +158,11 @@ function disableTyping() {
 }
 
 function increaseSpeed() {
-    if (hardTypingDisabled) return;
+    if (hardTypingDisabled && typingSpeed !== typingMinSpeed) return;
+    if (hardTypingDisabled && typingSpeed === typingMinSpeed) {
+        typingEnabled = true;
+        hardTypingDisabled = false;
+    }
     typingSpeed = Math.max(typingMinSpeed, typingSpeed - 10);
     if (typingSpeed <= typingMinSpeed) {
         typingEnabled = false;
@@ -172,7 +176,11 @@ function increaseSpeed() {
 }
 
 function decreaseSpeed() {
-    if (hardTypingDisabled) return;
+    if (hardTypingDisabled && typingSpeed !== typingMinSpeed) return;
+    if (hardTypingDisabled && typingSpeed === typingMinSpeed) {
+        typingEnabled = true;
+        hardTypingDisabled = false;
+    }
     typingSpeed = Math.min(typingMaxSpeed, typingSpeed + 10);
     if (typingSpeed < typingMinSpeed) typingSpeed = typingMinSpeed;
     typingEnabled = true;
@@ -267,7 +275,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
-
 
 function showRandomDiv() {
     const container = document.querySelector('#random');
