@@ -275,19 +275,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
-
-function showRandomDiv() {
-    const container = document.querySelector('#random');
-    if (!container) return;
-    const children = Array.from(container.children);
-    if (children.length === 0) return;
-    children.forEach(div => {
-        div.style.display = 'none';
-    });
-    const randomIndex = Math.floor(Math.random() * children.length);
-    children[randomIndex].style.display = 'block';
-}
-
-
-
-// <body onload="showRandomDiv()">
