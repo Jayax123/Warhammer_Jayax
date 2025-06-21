@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Character Information</title>
+    <link href="main.css" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="background_image"><img class="background" src="./Images/background-texture.png"></div>
+        <div class="Main_House">
+            <div id="super_frame" class="frame_circle" style="background-image: url(./Images/plfndijnvejfrhbvjvfvbuetrfivbnehuri.png);">
+                <div class="text" id="frame_1">
+                    <h2>Name Here</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+                <div class="text" style="display: none;" id="frame_2">
+                    <h2>Ne Here</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+                <div id="arrow">
+                    <a href="javascript:void(0)" onclick="toggleDivsCirc('frame_1', 'frame_2','super_frame',['./Images/plfndijnvejfrhbvjvfvbuetrfivbnehuri.png','./Images/circle_frame.png'])" class="arrow_left"></a>
+                    <a href="javascript:void(0)" onclick="toggleDivsCirc('frame_1', 'frame_2','super_frame',['./Images/plfndijnvejfrhbvjvfvbuetrfivbnehuri.png','./Images/circle_frame.png'])" class="arrow_right"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="General_Houses">
+            <div class="frame">
+                <div class="text" id="frame_1">
+                    <h2 class="title">Name Here</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+                <div class="text" style="display: none;" id="frame_2">
+                    <p>Hello I am so cool</p>
+                </div>
+                <div id="arrow">
+                    <a href="javascript:void(0)" onclick="toggleDivs('frame_1', 'frame_2')" class="arrow_left"></a>
+                    <a href="javascript:void(0)" onclick="toggleDivs('frame_1', 'frame_2')" class="arrow_right"></a>
+                </div>
+            </div>
+        </div>
+        <div class="Companies">
+        </div>
+    </div>
+</body>
+<script src="../main.js"></script>
+</html>
