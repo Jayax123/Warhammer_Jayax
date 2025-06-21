@@ -65,3 +65,25 @@ function toggleDivsCirc(id1, id2, parentId = null, backgrounds = []) {
         }
     }
 }
+
+// Frame activation management
+document.addEventListener('click', function(event) {
+    const allFrames = document.querySelectorAll('.frame, .frame_circle');
+    const clickedInsideFrame = event.target.closest('.frame, .frame_circle');
+    
+    allFrames.forEach(frame => {
+        if (frame !== clickedInsideFrame) {
+            frame.classList.remove('active');
+        }
+    });
+    
+    if (clickedInsideFrame) {
+        clickedInsideFrame.classList.add('active');
+    }
+});
+
+document.querySelectorAll('.arrow_left, .arrow_right').forEach(arrow => {
+    arrow.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+});

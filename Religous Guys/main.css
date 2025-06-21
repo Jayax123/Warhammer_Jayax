@@ -51,7 +51,7 @@ h1, h2, h3, h4 {
     align-items: center;
 }
 
-@media screen and (max-width: 850px){
+@media screen and (max-width: 831px){
     .title {
         margin-top: 8vw;
         grid-row-start: 1;
@@ -206,11 +206,13 @@ h1, h2, h3, h4 {
     box-sizing: border-box;
 }
 
-.frame:hover .arrow_left{
+.frame:hover .arrow_left,
+.frame.active .arrow_left {
     display: block;
 }
 
-.frame:hover .arrow_right{
+.frame:hover .arrow_right,
+.frame.active .arrow_right {
     display: block;
 }
 
@@ -294,11 +296,13 @@ h1, h2, h3, h4 {
     box-sizing: border-box;
 }
 
-.frame_circle:hover .arrow_left{
+.frame_circle:hover .arrow_left,
+.frame_circle.active .arrow_left {
     display: block;
 }
 
-.frame_circle:hover .arrow_right{
+.frame_circle:hover .arrow_right,
+.frame_circle.active .arrow_right {
     display: block;
 }
 
