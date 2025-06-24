@@ -12,8 +12,16 @@ const routes = {
     url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/help.html', 
     passwords: null 
   },
-  "overview": { 
+  "overview1": { 
     url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/overview/overview_1.html', 
+    passwords: null 
+  },
+  "overview2": { 
+    url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/overview/overview_2.html', 
+    passwords: null 
+  },
+  "overview": { 
+    url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/overview/overview_2.html', 
     passwords: null 
   },
   "granvalis prime": { 
@@ -32,47 +40,47 @@ const routes = {
   // === Protected Routes ===
   "compound": { 
     url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/compound.html', 
-    passwords: ["Fighold1jdneidj_idvncj1odscin9sdcjn", "Argenta"] 
+    passwords: ["Super Secret Admin Code", "Argenta"] 
   },
   "harvest ledger": { 
     url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/harvest_ledger.html', 
-    passwords: ["Fighold1jdneidj_idvncj1odscin9sdcjn"] 
+    passwords: ["Super Secret Admin Code"] 
   },
   "tavian lirae": { 
     url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/administratum_leader.html', 
-    passwords: ["Fighold1jdneidj_idvncj1odscin9sdcjn", "Argenta", "Private Detective Rieper","Roooooooombarion"] 
+    passwords: ["Super Secret Admin Code", "Argenta", "Private Detective Rieper","Roooooooombarion"] 
   },
   "vx-09k": { 
     url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/mechanicus_leader.html', 
-    passwords: ["Fighold1jdneidj_idvncj1odscin9sdcjn", "Roooooooombarion"] 
+    passwords: ["Super Secret Admin Code", "Roooooooombarion"] 
   },
   "fevil mancar": { 
     url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/ministorum_leader.html', 
-    passwords: ["Fighold1jdneidj_idvncj1odscin9sdcjn", "H1sW1llSh@11"] 
+    passwords: ["Super Secret Admin Code", "H1sW1llSh@11"] 
   },
   "daran maron": { 
     url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/PDF_Commander.html', 
-    passwords: ["Fighold1jdneidj_idvncj1odscin9sdcjn", "CommandInElegance343", "Trommelfeuer", "1nfern0_2950", "Vikka99"] 
+    passwords: ["Super Secret Admin Code", "CommandInElegance343", "Trommelfeuer", "1nfern0_2950", "Vikka99"] 
   },
   "elira campestris": { 
     url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/planetary-govenor-daughter.html', 
-    passwords: ["Fighold1jdneidj_idvncj1odscin9sdcjn"] 
+    passwords: ["Super Secret Admin Code"] 
   },
   "marcus campestris": { 
     url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/planetary-govenor.html', 
-    passwords: ["Fighold1jdneidj_idvncj1odscin9sdcjn", "CommandInElegance343", "Private Detective Rieper", "MZhTI33CLOK2z3", "Roooooooombarion", "H1sW1llSh@11"] 
+    passwords: ["Super Secret Admin Code", "CommandInElegance343", "Private Detective Rieper", "MZhTI33CLOK2z3", "Roooooooombarion", "H1sW1llSh@11"] 
   },
   "nocth": { 
     url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/warring_bands.html', 
-    passwords: ["Fighold1jdneidj_idvncj1odscin9sdcjn", "Private Detective Rieper", "MZhTI33CLOK2z3"] 
+    passwords: ["Super Secret Admin Code", "Private Detective Rieper", "MZhTI33CLOK2z3"] 
   },
   "carn": { 
     url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/people/warring_leader.html', 
-    passwords: ["Fighold1jdneidj_idvncj1odscin9sdcjn"] 
+    passwords: ["Super Secret Admin Code"] 
   },
   "church": { 
     url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/planet-information/church.html', 
-    passwords: ["Fighold1jdneidj_idvncj1odscin9sdcjn", "H1sW1llSh@11"] 
+    passwords: ["Super Secret Admin Code", "H1sW1llSh@11"] 
   },
   "crime intel report": { 
     url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/Venner_Underworld_intel.html', 
@@ -99,7 +107,7 @@ const routes = {
 
 
 const passwordData = {
-    "Fighold1jdneidj_idvncj1odscin9sdcjn": ['admin1', 'admin2', 'admin3', 'admin4', 'admin5'],
+    "Super Secret Admin Code": ['admin1', 'admin2', 'admin3', 'admin4', 'admin5'],
     "Guest": ['fileOther1', 'fileOther2', 'fileOther3', 'fileOther4', 'fileOther5'],
     "CommandInElegance343": ['gold1', 'gold2','gold3','gold4','gold5'],
     "Trommelfeuer": ['tom1', 'tom2','tom3','tom4','tom5'],
