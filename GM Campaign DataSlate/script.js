@@ -102,7 +102,7 @@ const routes = {
     url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/mack_planetary_report.html', 
     passwords: ["H1sW1llSh@11"] 
   },
-  "Encoded Message 1": { 
+  "encoded message 1": { 
     url: 'https://jayax123.github.io/Warhammer_Jayax/GM%20Campaign%20DataSlate/general/anom_decoded_message1.html', 
     passwords: ["MZhTI33CLOK2z3"] 
   }
